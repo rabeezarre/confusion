@@ -75,7 +75,7 @@ body{
   z-index: 1;
 }
 
-#reserveModal {
+.modal {
   .modal-header {
     background: $background-dark;
     color: floralwhite;
@@ -88,18 +88,3 @@ body{
     background: $background-pale;
   }
 }
-
-#loginModal {
-  .modal-header {
-    background: $background-dark;
-    color: floralwhite;
-    button {
-      color: floralwhite;
-    }
-  }
-
-  .modal-body {
-    background: $background-pale;
-  }
-}
-
