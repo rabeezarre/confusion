@@ -11,18 +11,18 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
-    <link rel="stylesheet" href="css/styles-old.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Ristorante Con Fusion</title>
 </head>
 
 <body>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="reserveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Reserve a Table</h5>
+                <h5 class="modal-title" id="reserveModalLabel">Reserve a Table</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -94,30 +94,7 @@
     </div>
 </div>
 
-<!-- Navigation -->
-<nav class="navbar navbar-dark navbar-expand-sm fixed-top">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#"><img src="img/logo.png" height="30" width="41"></a>
-        <div class="collapse navbar-collapse" id="Navbar">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span> Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info fa-lg"></span> About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
-            </ul>
-            <span class="navbar-text">
-                <a data-toggle="modal" data-target="#loginModal">
-                    <span class="fa fa-sign-in"></span> Login
-                </a>
-            </span>
-        </div>
-    </div>
-</nav>
-
-<!-- Login -->
+<!-- Login Modal -->
 <div id="loginModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg" role="content">
         <div class="modal-content">
@@ -156,6 +133,29 @@
     </div>
 </div>
 
+<!-- Navigation -->
+<nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="img/logo.png" height="30" width="41"></a>
+        <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="./aboutus.html"><span class="fa fa-info fa-lg"></span> About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span> Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span> Contact</a></li>
+            </ul>
+            <span class="navbar-text">
+                <a id="loginButton">
+                    <span class="fa fa-sign-in"></span> Login
+                </a>
+            </span>
+        </div>
+    </div>
+</nav>
+
 <header class="jumbotron">
     <div class="container">
         <div class="row row-header">
@@ -167,7 +167,8 @@
                 <img src="img/logo.png" class="img-fluid">
             </div>
             <div class="col-12 col-sm-3 align-self-center">
-                <button type="button" class="btn btn-block nav-link btn-warning text-white" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" id="reserveButton"
+                        class="btn btn-block nav-link btn-warning text-white">
                     Reserve a Table
                 </button>
             </div>
@@ -360,6 +361,15 @@
                 $("#carouselButton").children('span').addClass('fa-pause');
             }
         });
+
+        $("#reserveButton").click( function () {
+            $('#reserveModal').modal()
+        })
+
+        $("#loginButton").click( function () {
+            $('#loginModal').modal()
+        })
+
     });
 </script>
 
